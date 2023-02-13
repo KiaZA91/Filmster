@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Filmster.Membership.Database.Migrations
 {
     [DbContext(typeof(FilmContext))]
-    [Migration("20230212213644_abcd")]
-    partial class abcd
+    [Migration("20230213102053_FilmterMembership")]
+    partial class FilmterMembership
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

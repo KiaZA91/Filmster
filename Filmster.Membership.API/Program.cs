@@ -1,10 +1,7 @@
-//using Filmster.Common.DTOs;
+using AutoMapper;
 using Filmster.Membership.Database.Entities;
-using Filmster.Membership.Database.Services;
 using Filmster.Membership.Database;
 using Filmster.Common.DTOs;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using static System.Collections.Specialized.BitVector32;
 
 var builder = WebApplication.CreateBuilder(args);
 
