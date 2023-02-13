@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filmster.Admin.Ui", "Filmster.Admin.Ui\Filmster.Admin.Ui.csproj", "{71B9800E-C114-4649-983C-2B7D89EB943A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filmster.Common", "Filmster.Common\Filmster.Common.csproj", "{27ED3158-265A-4E7E-8C3D-E4427E51D0B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filmster.Membership.Database", "Filmster.Membership\Filmster.Membership.Database.csproj", "{29CEC582-3786-474B-A3A7-1B12A836A811}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filmster.Membership.API", "Filmster.Membership.API\Filmster.Membership.API.csproj", "{707F4D2D-05E6-435E-A593-EA080CE393AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71B9800E-C114-4649-983C-2B7D89EB943A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B9800E-C114-4649-983C-2B7D89EB943A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B9800E-C114-4649-983C-2B7D89EB943A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B9800E-C114-4649-983C-2B7D89EB943A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27ED3158-265A-4E7E-8C3D-E4427E51D0B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27ED3158-265A-4E7E-8C3D-E4427E51D0B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27ED3158-265A-4E7E-8C3D-E4427E51D0B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27ED3158-265A-4E7E-8C3D-E4427E51D0B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29CEC582-3786-474B-A3A7-1B12A836A811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29CEC582-3786-474B-A3A7-1B12A836A811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29CEC582-3786-474B-A3A7-1B12A836A811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29CEC582-3786-474B-A3A7-1B12A836A811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{707F4D2D-05E6-435E-A593-EA080CE393AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{707F4D2D-05E6-435E-A593-EA080CE393AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{707F4D2D-05E6-435E-A593-EA080CE393AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{707F4D2D-05E6-435E-A593-EA080CE393AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7B0BBE5-A8EF-45BB-A937-7CD095CD9004}
+	EndGlobalSection
+EndGlobal
