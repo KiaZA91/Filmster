@@ -61,6 +61,7 @@ namespace Filmster.Membership.Database.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("FilmUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool?>("Free")
@@ -84,18 +85,21 @@ namespace Filmster.Membership.Database.Migrations
                         {
                             Id = 1,
                             DirectorId = 1,
+                            FilmUrl = "https://www.youtube.com/watch?v=JqcncLPi9zw",
                             Title = "Spiderman"
                         },
                         new
                         {
                             Id = 2,
                             DirectorId = 1,
+                            FilmUrl = "https://www.youtube.com/watch?v=mqqft2x_Aa4",
                             Title = "Batman"
                         },
                         new
                         {
                             Id = 3,
                             DirectorId = 1,
+                            FilmUrl = "https://www.youtube.com/watch?v=udKE1ksKWDE",
                             Title = "The Hulk"
                         });
                 });

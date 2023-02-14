@@ -20,7 +20,7 @@ namespace Filmster.Membership.Database.Entities
             public DateTime? Released { get; set; }
             public bool? Free { get; set; }
             public string? Description { get; set; }
-            public string? FilmUrl { get; set; }
+            public string FilmUrl { get; set; }
             public int DirectorId { get; set; }
             public virtual Director Director { get; set; } = null!;
             public virtual ICollection<SimilarFilm> SimilarFilms { get; set; }

@@ -1,0 +1,12 @@
+﻿@inject IAdminService AdminService
+
+<h3>FilmPortal</h3>
+
+@code {
+    List<FilmDTO> Model { get; set; } = new();
+
+    protected override  async Task OnInitializedAsync()
+    {
+        Model = await AdminService.GetAsync<FilmDTO>($"film?FreeOnly=false");
+    }
+}

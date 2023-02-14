@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Filmster.Membership.Database.Migrations
 {
     /// <inheritdoc />
-    public partial class Tryonetwo : Migration
+    public partial class Tryonetwoo : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -49,7 +49,7 @@ namespace Filmster.Membership.Database.Migrations
                     Released = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Free = table.Column<bool>(type: "bit", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FilmUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FilmUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DirectorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -129,9 +129,9 @@ namespace Filmster.Membership.Database.Migrations
                 columns: new[] { "Id", "Description", "DirectorId", "FilmUrl", "Free", "Released", "Title" },
                 values: new object[,]
                 {
-                    { 1, null, 1, null, null, null, "Spiderman" },
-                    { 2, null, 1, null, null, null, "Batman" },
-                    { 3, null, 1, null, null, null, "The Hulk" }
+                    { 1, null, 1, "https://www.youtube.com/watch?v=JqcncLPi9zw", null, null, "Spiderman" },
+                    { 2, null, 1, "https://www.youtube.com/watch?v=mqqft2x_Aa4", null, null, "Batman" },
+                    { 3, null, 1, "https://www.youtube.com/watch?v=udKE1ksKWDE", null, null, "The Hulk" }
                 });
 
             migrationBuilder.InsertData(

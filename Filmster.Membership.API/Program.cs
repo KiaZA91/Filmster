@@ -23,7 +23,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<FilmContext>(
 options =>
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("VODConnection")));
+        builder.Configuration.GetConnectionString("FilmsterConnection")));
 
 builder.Services.AddScoped<IDbService, DbService>();
 

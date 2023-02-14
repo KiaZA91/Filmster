@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="HttpClients\" />
-    <Folder Include="Services\" />
     <Folder Include="Authentication\" />
     <Folder Include="JWT\" />
     <Folder Include="Models\" />

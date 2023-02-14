@@ -1,4 +1,5 @@
 ﻿using Filmster.Membership.Database.Entities;
+using static System.Net.WebRequestMethods;
 
 namespace Filmster.Membership.Database
 {
@@ -40,9 +41,9 @@ namespace Filmster.Membership.Database
                 new { Id = 1, Name = "Kia Ala" });
 
             modelBuilder.Entity<Film>().HasData(
-                new { Id = 1, Title = "Spiderman", DirectorId = 1 },
-                new { Id = 2, Title = "Batman", DirectorId = 1 },
-                new { Id = 3, Title = "The Hulk", DirectorId = 1 });
+                new { Id = 1, Title = "Spiderman", DirectorId = 1 , FilmUrl = "https://www.youtube.com/watch?v=JqcncLPi9zw" },
+                new { Id = 2, Title = "Batman", DirectorId = 1 , FilmUrl = "https://www.youtube.com/watch?v=mqqft2x_Aa4"},
+                new { Id = 3, Title = "The Hulk", DirectorId = 1, FilmUrl = "https://www.youtube.com/watch?v=udKE1ksKWDE" });
 
             modelBuilder.Entity<SimilarFilm>().HasData(
                 new SimilarFilm { FilmId = 1, SimilarFilmId = 2 },
