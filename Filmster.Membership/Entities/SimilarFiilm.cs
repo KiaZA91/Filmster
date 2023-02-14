@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Filmster.Membership.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Filmster.Membership.Database.Entities
 {
-    public class SimilarFilm
+    public class SimilarFilm 
     {
         public int FilmId { get; set; }
         public int SimilarFilmId { get; set; }

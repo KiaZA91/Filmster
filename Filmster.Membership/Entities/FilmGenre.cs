@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Filmster.Membership.Database.Entities;
+﻿
 
 namespace Filmster.Membership.Database.Entities
 {
-    public class FilmGenre
+    public class FilmGenre : IReferenceEntity
     {
         public int FilmId { get; set; }
         public int GenreId { get; set; }

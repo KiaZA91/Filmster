@@ -15,6 +15,7 @@ namespace Filmster.Membership.Database.Entities
             Films = new HashSet<Film>();
         }
         public int Id { get; set; }
-        public string Name { get; set; } = null!; public virtual ICollection<Film> Films { get; set; }
+        public string Name { get; set; } = null!;
+        public virtual ICollection<Film> Films { get; set; }
     }
 }

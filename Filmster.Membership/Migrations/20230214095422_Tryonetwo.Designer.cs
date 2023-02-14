@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Filmster.Membership.Database.Migrations
 {
     [DbContext(typeof(FilmContext))]
-    [Migration("20230213102053_FilmterMembership")]
-    partial class FilmterMembership
+    [Migration("20230214095422_Tryonetwo")]
+    partial class Tryonetwo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -121,16 +121,6 @@ namespace Filmster.Membership.Database.Migrations
                         new
                         {
                             FilmId = 1,
-                            GenreId = 1
-                        },
-                        new
-                        {
-                            FilmId = 1,
-                            GenreId = 2
-                        },
-                        new
-                        {
-                            FilmId = 2,
                             GenreId = 1
                         },
                         new

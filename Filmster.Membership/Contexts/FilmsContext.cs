@@ -17,7 +17,7 @@ namespace Filmster.Membership.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            /* Composit Keys */
+            //Composit Keys 
             modelBuilder.Entity<SimilarFilm>().HasKey(ci => new { ci.FilmId, ci.SimilarFilmId });
             modelBuilder.Entity<FilmGenre>().HasKey(ci => new { ci.FilmId, ci.GenreId });
 
@@ -34,7 +34,8 @@ namespace Filmster.Membership.Database
                       .UsingEntity<FilmGenre>()
                       .ToTable("FilmGenres");
             });
-            /* Seed Data */
+
+            // Seed Data 
             modelBuilder.Entity<Director>().HasData(
                 new { Id = 1, Name = "Kia Ala" });
 
@@ -53,8 +54,6 @@ namespace Filmster.Membership.Database
 
             modelBuilder.Entity<FilmGenre>().HasData(
                 new FilmGenre { FilmId = 1, GenreId = 1 },
-                new FilmGenre { FilmId = 1, GenreId = 2 },
-                new FilmGenre { FilmId = 2, GenreId = 1 },
                 new FilmGenre { FilmId = 3, GenreId = 1 });
         }
     

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Filmster.Membership.Database.Migrations
 {
     /// <inheritdoc />
-    public partial class FilmterMembership : Migration
+    public partial class Tryonetwo : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -140,8 +140,6 @@ namespace Filmster.Membership.Database.Migrations
                 values: new object[,]
                 {
                     { 1, 1 },
-                    { 1, 2 },
-                    { 2, 1 },
                     { 3, 1 }
                 });
 

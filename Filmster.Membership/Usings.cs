@@ -9,3 +9,4 @@ global using System.Threading.Tasks;
 global using System.Linq.Expressions;
 global using Filmster.Membership.Database.Entities;
 global using Filmster.Common.DTOs;
+global using Filmster.Membership.Database.Services;

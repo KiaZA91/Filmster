@@ -5,7 +5,8 @@ using Filmster.Common.DTOs;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(policy => {
+builder.Services.AddCors(policy =>
+{
     policy.AddPolicy("CorsAllAccessPolicy", opt =>
         opt.AllowAnyOrigin()
            .AllowAnyHeader()
@@ -33,26 +34,26 @@ void ConfigureAutoMapper()
 {
     var config = new AutoMapper.MapperConfiguration(cfg =>
     {
+        cfg.CreateMap<Director, DirectorDTO>()
+        .ReverseMap();
+
         cfg.CreateMap<Director, DirectorCreateDTO>()
         .ReverseMap();
 
         cfg.CreateMap<Film, FilmDTO>()
         .ReverseMap();
-        //.ForMember(dest => dest.Courses, src => src.Ignore());
 
         cfg.CreateMap<FilmGenre, FilmGenreDTO>()
            .ReverseMap();
-        // Only needed for seeding data.
-        // .ForMember(dest => dest.Instructor, src => src.Ignore());
+
 
         cfg.CreateMap<Genre, GenreDTO>();
-        //.ForMember(dest => dest.Instructor, src => src.Ignore())
-        //.ForMember(dest => dest.Sections, src => src.Ignore());
+
 
         cfg.CreateMap<SimilarFilm, SimilarFilmsDTO>()
-            //.ForMember(dest => dest.Course, src => src.MapFrom(s => s.Course.Title))
+
             .ReverseMap();
-        //.ForMember(dest => dest.Course, src => src.Ignore());
+
     });
     var mapper = config.CreateMapper();
     builder.Services.AddSingleton(mapper);

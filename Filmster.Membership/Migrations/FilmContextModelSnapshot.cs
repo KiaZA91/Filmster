@@ -122,16 +122,6 @@ namespace Filmster.Membership.Database.Migrations
                         },
                         new
                         {
-                            FilmId = 1,
-                            GenreId = 2
-                        },
-                        new
-                        {
-                            FilmId = 2,
-                            GenreId = 1
-                        },
-                        new
-                        {
                             FilmId = 3,
                             GenreId = 1
                         });
