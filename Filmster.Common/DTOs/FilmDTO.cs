@@ -26,7 +26,7 @@ namespace Filmster.Common.DTOs
     public class FilmCreateDTO
     {
         public string Title { get; set; }
-        public DateTime? Released { get; set; } = DateTime.Today;
+        public DateTime Released { get; set; } = DateTime.Today;
         public bool Free { get; set; }
         public string Description { get; set; }
         public string FilmUrl { get; set; }

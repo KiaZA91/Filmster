@@ -7,6 +7,32 @@
 
     protected override  async Task OnInitializedAsync()
     {
-        Model = await AdminService.GetAsync<FilmDTO>($"film?FreeOnly=false");
+       /* 
+        * var films = await AdminService.SingelAsync<FilmDTO>($"films/1");
+         await AdminService.CreateAsync<FilmCreateDTO>($"films",
+        new FilmCreateDTO { 
+        Title = "abcd",
+        Released = DateTime.Today,
+        Free = true,
+        Description = "EFGHI",
+        FilmUrl = "url",
+        DirectorId = 1});
+
+
+          await AdminService.EditAsync<FilmEditDTO>($"films/5",
+        new FilmEditDTO
+            {
+                Id= 5,
+         Title = "UPDATEEEEEEED",
+         Released = DateTime.Today,
+         Free = true,
+               Description = "UPDATEEEEEEED adI",
+               FilmUrl = "UPDATEEEEEEED url",
+         DirectorId = 1});
+
+        await AdminService.DeleteAsync<FilmDTO>($"films/5");*/
+
+        Model = await AdminService.GetAsync<FilmDTO>($"films?FreeOnly=false");
+        
     }
 }

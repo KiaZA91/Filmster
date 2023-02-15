@@ -60,7 +60,7 @@ namespace Filmster.Membership.API.Controllers
                 {
                     return Results.BadRequest();
                 }
-                return Results.Ok();
+                return Results.Created(_db.GetURI<Film>(film), film);
             }
             catch
             {
