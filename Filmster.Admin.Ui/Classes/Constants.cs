@@ -11,8 +11,8 @@ public static class Routes
 
 public static class PageType
 {
-    public static string Index => "Index";
-    public static string Create => "Create";
+    public static string Films => "Index";
+    public static string AddFilm=> "Create";
         public static string Edit => "Edit";
     public static string Delete => "Delete"; 
 
