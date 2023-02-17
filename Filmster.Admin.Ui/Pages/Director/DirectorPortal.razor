@@ -34,10 +34,10 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Model = await AdminService.GetAsync<DirectorDTO>($"directors?freeOnly=false");
+        Model = await AdminService.GetAsync<DirectorDTO>($"director?freeOnly=false");
         Alert = "";
 
-        var director = await AdminService.SingelAsync<DirectorDTO>($"directors/1");
+        var director = await AdminService.SingelAsync<DirectorDTO>($"director/1");
 
         //await AdminService.CreateAsync<FilmDTO>($"films/", new FilmDTO
         //await AdminService.EditAsync<FilmDTO>($"films/5", new FilmDTO{
@@ -61,7 +61,7 @@
     async Task OnClick(ClickModel model)
     {
         if (model.PageType.Equals(PageType.Edit) || model.PageType.Equals(PageType.Delete))
-            Director = await AdminService.SingelAsync<DirectorDTO>($"directors/{model.Id}") ?? new();
+            Director = await AdminService.SingelAsync<DirectorDTO>($"director/{model.Id}") ?? new();
 
         ChangePageType(model.PageType);
     }
@@ -71,7 +71,7 @@
         try
         {
             Alert = alert;
-            Model = await AdminService.GetAsync<DirectorDTO>("directors");
+            Model = await AdminService.GetAsync<DirectorDTO>("director");
             ChangePageType(PageType.Content);
         }
         catch
