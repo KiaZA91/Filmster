@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Folder Include="Authentication\" />
+    <Folder Include="Pages\Director\" />
+    <Folder Include="Pages\FilmGenre\" />
   </ItemGroup>
 
   <ItemGroup>

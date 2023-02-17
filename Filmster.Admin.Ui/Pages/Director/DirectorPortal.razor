@@ -1,5 +1,82 @@
-﻿<h3>DirectorPortal</h3>
+﻿@inject IAdminService AdminService
+
+@if (!string.IsNullOrEmpty(Alert))
+{
+        <div class="d-flex">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>@Alert</strong>
+                <button type="button" @onclick="CloseAlert" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+}
+@if (Navigation == PageType.Add)
+{
+    <ChangeDirector Page="@Navigation" OnChange="OnChange"></ChangeDirector>}
+
+@if (Navigation == PageType.Delete || Navigation == PageType.Edit)
+{
+    <ChangeDirector Page="@Navigation" OnChange="OnChange" Model="Director"></ChangeDirector>}
+
+<div class="d-flex me-1">
+    <a href="/" class="btn btn-outline-secondary rounded-0 me-1">Home</a>
+    <button type="button" class="btn btn-outline-primary rounded-0 me-1" @onclick="()=>ChangePageType(PageType.Content)">Director</button>
+    <button type="button" class="btn btn-outline-success rounded-0" @onclick="()=>ChangePageType(PageType.Add)">Add Director</button>
+</div>
+
+<DirectorIndex OnClick="OnClick" Model="Model"></DirectorIndex>
 
 @code {
 
+    List<DirectorDTO> Model{ get; set; } = new();
+    string Alert { get; set; } = "";
+    string Navigation { get; set; } = PageType.Content;
+    public DirectorDTO Director { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Model = await AdminService.GetAsync<DirectorDTO>($"directors?freeOnly=false");
+        Alert = "";
+
+        var director = await AdminService.SingelAsync<DirectorDTO>($"directors/1");
+
+        //await AdminService.CreateAsync<FilmDTO>($"films/", new FilmDTO
+        //await AdminService.EditAsync<FilmDTO>($"films/5", new FilmDTO{
+        //await AdminService.DeleteAsync<FilmDTO>($"films/5");
+        //   {
+    //            Id = 5,
+    //            Title = "hohoho",
+    //;
+    //        Released = DateTime.Today,
+    //            Free = true,
+    //            Description = "EFGHI",
+    //            FilmUrl = "url",
+    //            DirectorId = 1
+    //    })
+
+    }
+
+    void ChangePageType(string pageType) => Navigation = pageType;
+    void CloseAlert() => Alert = "";
+
+    async Task OnClick(ClickModel model)
+    {
+        if (model.PageType.Equals(PageType.Edit) || model.PageType.Equals(PageType.Delete))
+            Director = await AdminService.SingelAsync<DirectorDTO>($"directors/{model.Id}") ?? new();
+
+        ChangePageType(model.PageType);
+    }
+
+    async Task OnChange(string alert)
+    {
+        try
+        {
+            Alert = alert;
+            Model = await AdminService.GetAsync<DirectorDTO>("directors");
+            ChangePageType(PageType.Content);
+        }
+        catch
+        {
+            Alert = "Couldn't create/edit/delete the director.";
+        }
+    } 
 }
