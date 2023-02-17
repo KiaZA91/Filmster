@@ -11,59 +11,72 @@ namespace Filmster.Membership.API.Controllers
     public class DirectorController : ControllerBase
     {
         private readonly IDbService _db;
-        public DirectorController(IDbService db)
-        {
-            _db = db;
-        }
+        public DirectorController(IDbService db) => _db = db;
 
+
+        // GET: api/<FilmsController>
         [HttpGet]
         public async Task<IResult> Get()
         {
             try
             {
-                var directors = await _db.GetAsync<Director, DirectorDTO>();
+                // _db.Include<Director>();
+                // _db.Include<FilmGenre>();
+
+                List<DirectorDTO>? directors = await _db.GetAsync<Director, DirectorDTO>();
+
                 return Results.Ok(directors);
             }
             catch (Exception ex)
             {
-                return Results.NotFound(ex.Message);
+
             }
+            return Results.NotFound();
+
         }
 
+        // GET api/<FilmsController>/5
         [HttpGet("{id}")]
         public async Task<IResult> Get(int id)
         {
             try
             {
-                _db.Include<Director>();
-                var director = await _db.SingleAsync<Director, DirectorDTO>(c => c.Id == id);
+                _db.Include<Film>();
+                // _db.Include<FilmGenre>();
+                var director = await _db.SingleAsync<Director, DirectorDTO>(d => d.Id.Equals(id));
+
                 return Results.Ok(director);
             }
-            catch (Exception ex)
+
+            catch
             {
 
-                return Results.NotFound(ex.Message);
             }
+            return Results.NotFound();
         }
 
+        // POST api/<FilmsController>
         [HttpPost]
+
         public async Task<IResult> Post([FromBody] DirectorCreateDTO dto)
         {
             try
             {
+                if (dto == null) return Results.BadRequest();
+
                 var director = await _db.AddAsync<Director, DirectorCreateDTO>(dto);
-                var result = await _db.SaveChangesAsync();
-                if (!result) return Results.BadRequest();
+                var success = await _db.SaveChangesAsync();
 
-                return Results.Created(_db.GetURI(director), director);
-            }
-            catch (Exception ex)
-            {
+                if (!success) return Results.BadRequest();
 
-                return Results.BadRequest(ex.Message);
+                return Results.Created(_db.GetURI<Director>(director), director);
             }
+            catch { }
+
+            return Results.BadRequest();
         }
 
+        // PUT api/<FilmsController>/5
         [HttpPut("{id}")]
         public async Task<IResult> Put(int id, [FromBody] DirectorDTO dto)
         {
@@ -89,6 +102,7 @@ namespace Filmster.Membership.API.Controllers
             return Results.BadRequest();
         }
 
+        // DELETE api/<FilmsController>/5
         [HttpDelete("{id}")]
         public async Task<IResult> Delete(int id)
         {
@@ -111,3 +125,4 @@ namespace Filmster.Membership.API.Controllers
 
     }
 }
+
