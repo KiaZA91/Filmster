@@ -68,11 +68,11 @@
             try
             {
                 if (Page.Equals(PageType.Add))
-                    await AdminService.CreateAsync<GenreDTO>("Genres", Model);
+                    await AdminService.CreateAsync<GenreDTO>("Genre", Model);
                 else if (Page.Equals(PageType.Edit))
-                await AdminService.EditAsync<GenreDTO>($"Genres/{Model.Id}", Model);
+                await AdminService.EditAsync<GenreDTO>($"Genre/{Model.Id}", Model);
                 else if (Page.Equals(PageType.Delete))
-                await AdminService.DeleteAsync<GenreDTO>($"Genres/{Model.Id}");
+                await AdminService.DeleteAsync<GenreDTO>($"Genre/{Model.Id}");
 
                 await OnChange.InvokeAsync("");
             }
