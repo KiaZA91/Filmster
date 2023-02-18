@@ -51,7 +51,7 @@
             <button type="submit" class="btn btn-@(Page.Equals(PageType.Delete) ? "danger" : "primary") rounded-0">@Page</button>
     </EditForm>
 </div>
-
+ 
         @code {
         [Parameter] public GenreDTO Model { get; set; } = new();
         [Parameter] public string Page { get; set; } = string.Empty;
