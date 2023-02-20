@@ -1,0 +1,51 @@
+﻿@inject IAdminService AdminService
+
+<div class="d-xl-flex justify-content-center">
+    <EditForm Model="@Model" OnValidSubmit="@OnFormSubmit" class="mb-5 border border-1 border-secondary p-2 w-25">
+        <DataAnnotationsValidator />
+        <h4>@Page SimilarFilm</h4>
+        <div class="mb-3">
+            @if (Page.Equals(PageType.Delete))
+                {
+                <InputNumber id="SimilarFilm" class="form-control me-2" @bind-Value="Model.FilmId" disabled placeholder="Id"></InputNumber>
+                }
+                else
+                {
+                <InputNumber id="SimilarFilm" class="form-control me-2" @bind-Value="Model.SimilarFilmId" placeholder="Id"></InputNumber>
+                }
+            <ValidationMessage For="@(() => Model.FilmId)" />
+        </div>
+
+            <button type="submit" class="btn btn-@(Page.Equals(PageType.Delete) ? "danger" : "primary") rounded-0">@Page</button>
+    </EditForm>
+</div>
+ 
+        @code {
+        [Parameter] public SimilarFilmsDTO Model { get; set; } = new();
+        [Parameter] public string Page { get; set; } = string.Empty;
+        [Parameter] public EventCallback<string> OnChange { get; set; }
+        //List<SimilarFilmsDTO> SimilarFilm { get; set; } = new();
+
+        //protected override async Task OnInitializedAsync()
+        //{
+        //SimilarFilm = await AdminService.GetAsync<SimilarFilmsDTO>("fimilarfilm");
+        //}
+
+        private async Task OnFormSubmit()
+        {
+            try
+            {
+                if (Page.Equals(PageType.Add))
+                await AdminService.CreateAsync<SimilarFilmsDTO>("similarfilms", Model);
+                else if (Page.Equals(PageType.Delete))
+                await AdminService.DeleteAsync<SimilarFilmsDTO>($"similarfilms/{Model.FilmId}");
+
+                await OnChange.InvokeAsync("");
+            }
+            catch
+            {
+                await OnChange.InvokeAsync("Couldn't create/edit/delete similarfilm.");
+            }
+        }
+
+}

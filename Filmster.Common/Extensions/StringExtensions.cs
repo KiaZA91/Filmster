@@ -6,6 +6,8 @@
         {
             if (string.IsNullOrWhiteSpace(value)) return string.Empty;
             if (value.Length <= length) return value; return $"{value[..length]} ...";
+            var result = value.Substring(0, length);    
+            return $"{result}  ...";
         }
     }
 }
