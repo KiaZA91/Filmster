@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 
 namespace Filmster.Common.Services
@@ -98,5 +99,19 @@ namespace Filmster.Common.Services
                 throw;
             }
         }
+
+        public async Task DeleteReferenceAsync<TDto>(string uri, TDto dto)
+        {
+            try
+            {
+                var requestMessage = new HttpRequestMessage(HttpMethod.Delete, uri);
+                requestMessage.Content = JsonContent.Create(dto);
+                using var response = await _http.Client.SendAsync(requestMessage);
+                response.EnsureSuccessStatusCode(); requestMessage.Dispose();
+            }
+            catch (Exception ex) { throw; }
+        }
+
+
     }
 }
