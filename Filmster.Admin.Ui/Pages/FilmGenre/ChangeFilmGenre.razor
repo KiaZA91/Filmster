@@ -52,9 +52,9 @@
 		try
 		{
 			if (Page.Equals(PageType.Add))
-				await AdminService.CreateAsync<FilmGenreDTO>("filmGenres", Model);
+				await AdminService.CreateAsync<FilmGenreDTO>("filmgenre", Model);
 			else if (Page.Equals(PageType.Delete))
-				await AdminService.DeleteReferenceAsync<FilmGenreDTO>($"filmGenres", new FilmGenreDTO
+				await AdminService.DeleteReferenceAsync<FilmGenreDTO>($"filmgenre", new FilmGenreDTO
 					{
 						FilmId = Model.FilmId,
 						GenreId = Model.GenreId
@@ -67,3 +67,5 @@
 		}
 	}
 }
+
+

@@ -10,7 +10,7 @@
             else
             {
                 <InputText id="title" class="form-control me-2" @bind-Value="Model.Title" placeholder="Title"></InputText>
-            }            <ValidationMessage For="@(() => Model.Title)" />       
+            }            <ValidationMessage For="@(() => Model.Title)" />
         </div>
 
 
@@ -24,6 +24,11 @@
         <InputText id="image-url" class="form-control me-2" @bind-Value="Model.FilmUrl" placeholder="Image Url"></InputText>
         <ValidationMessage For="@(() => Model.FilmUrl)" />
         </div>*@
+
+            <div class="mb-3">
+                <InputDate id="released" class="form-control me-2" @bind-Value="Model.Released" placeholder="Released">
+                </InputDate>            <ValidationMessage For="@(() => Model.Released)" />       
+            </div>
             <div class="mb-3">
                 <InputText id="Film-url" class="form-control me-2" @bind-Value="Model.FilmUrl" placeholder="Film Url"></InputText>
                 <ValidationMessage For="@(() => Model.Title)" />
