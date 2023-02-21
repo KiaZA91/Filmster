@@ -21,11 +21,14 @@
 }
 
 
+
+
 <div class="d-flex me-1">
 	<a href="/" class="btn btn-outline-secondary rounded-0 me-1">Home</a>
 	<button type="button" class="btn btn-outline-primary rounded-0 me-1" @onclick="()=>ChangePageType(PageType.Content)">FilmGenre</button>
 	<button type="button" class="btn btn-outline-success rounded-0" @onclick="()=>ChangePageType(PageType.Add)">Add FilmGenre</button>
 </div>
+
 <FilmGenreIndex OnClick="OnClick" Model="Model"></FilmGenreIndex>
 
 @code {
