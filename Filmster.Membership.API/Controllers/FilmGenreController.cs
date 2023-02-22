@@ -50,22 +50,16 @@ namespace Filmster.Membership.API.Controllers
 			return Results.NotFound();
 		}
 
-		[HttpDelete]
-        public async Task<IResult> Delete(FilmCreateDTO dto)
+        [HttpDelete]
+        public async Task<IResult> Delete(FilmGenreCreateDTO dto)
         {
             try
             {
-                _db.DeleteAsync<FilmGenre, FilmCreateDTO>(dto);
-
-                
+                _db.Delete<FilmGenre, FilmGenreCreateDTO>(dto);
                 var success = await _db.SaveChangesAsync();
-
-                if (!success) return Results.BadRequest();
-
-                return Results.NoContent();
+                if (!success) return Results.BadRequest(); return Results.NoContent();
             }
             catch { }
-
             return Results.BadRequest();
         }
     }

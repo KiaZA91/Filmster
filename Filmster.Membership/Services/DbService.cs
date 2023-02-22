@@ -88,10 +88,10 @@ namespace Filmster.Membership.Database.Services
             throw new NotImplementedException();
         }
 
-        public Task DeleteReferenceAsync<TDto>(string uri, TDto dto)
-        {
-            throw new NotImplementedException();
-        }
+        //public Task DeleteReferenceAsync<TDto>(string uri, TDto dto)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
 		public bool Delete<TReferenceEntity, TDto>(TDto dto) where TReferenceEntity : class, IReferenceEntity where TDto : class
 		{
