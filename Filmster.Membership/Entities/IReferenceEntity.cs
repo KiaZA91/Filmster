@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Filmster.Membership.Database.Entities
 {
-    internal interface IReferenceEntity
+    public  interface IReferenceEntity
     {
     }
 }

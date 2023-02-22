@@ -92,5 +92,22 @@ namespace Filmster.Membership.Database.Services
         {
             throw new NotImplementedException();
         }
-    }
+
+		public bool Delete<TReferenceEntity, TDto>(TDto dto) where TReferenceEntity : class, IReferenceEntity where TDto : class
+		{
+			{
+				try
+				{
+					var entity = _mapper.Map<TReferenceEntity>(dto);
+					if (entity is null)
+						return false; _db.Remove(entity);
+				}
+				catch
+				{
+					throw;
+				}
+				return true;
+			}
+		}
+	}
 }

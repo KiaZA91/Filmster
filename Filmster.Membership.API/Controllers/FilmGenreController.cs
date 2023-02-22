@@ -29,7 +29,28 @@ namespace Filmster.Membership.API.Controllers
             return Results.NoContent();
         }
 
-        [HttpDelete]
+
+		[HttpPost]
+		public async Task<IResult> Post(FilmGenreCreateDTO dto)
+		{
+			try
+			{
+				if (dto == null) return Results.BadRequest();
+				var filmgenre = await _db.AddAsync<FilmGenre, FilmGenreCreateDTO>(dto);
+				var success = await _db.SaveChangesAsync();
+				if (!success) return Results.BadRequest();
+				return Results.Ok();
+			}
+
+			catch
+			{
+
+			}
+
+			return Results.NotFound();
+		}
+
+		[HttpDelete]
         public async Task<IResult> Delete(FilmCreateDTO dto)
         {
             try

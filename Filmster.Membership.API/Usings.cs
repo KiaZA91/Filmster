@@ -5,3 +5,5 @@ global using Microsoft.AspNetCore.Authorization;
 global using Microsoft.AspNetCore.Http;
 global using Microsoft.AspNetCore.Mvc;
 global using Filmster.Common.DTOs;
+global using System.Text.Json.Serialization;
+global using System.Text.Json;

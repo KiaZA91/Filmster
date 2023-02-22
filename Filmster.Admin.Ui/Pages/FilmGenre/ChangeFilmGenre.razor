@@ -44,7 +44,7 @@
 	protected override async Task OnInitializedAsync()
 	{
 		Films = await AdminService.GetAsync<FilmDTO>("Films");
-		Genres = await AdminService.GetAsync<GenreDTO>("Genres");
+		Genres = await AdminService.GetAsync<GenreDTO>("Genre");
 	}
 
 	private async Task OnFormSubmit()

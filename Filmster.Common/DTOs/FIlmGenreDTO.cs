@@ -12,3 +12,9 @@ namespace Filmster.Common.DTOs
         public int GenreId { get; set; }
     }
 }
+public class FilmGenreCreateDTO
+{
+	public int FilmId { get; set; }
+	public int GenreId { get; set; }
+}
+

@@ -28,6 +28,8 @@ namespace Filmster.Membership.Database.Services
         string GetURI<TEntity>(TEntity entity) where TEntity : class, IEntity;
         void Include<TEntity>() where TEntity : class;
         Task DeleteReferenceAsync<TDto>(string uri, TDto dto);
-
+        bool Delete<TReferenceEntity, TDto>(TDto dto)
+            where TReferenceEntity : class, IReferenceEntity
+            where TDto : class;
     }
 }

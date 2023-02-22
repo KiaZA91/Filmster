@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace Filmster.Membership.Database.Entities
 {
-    public class SimilarFilm 
-    {
+    public class SimilarFilm : IReferenceEntity
+	{
         public int FilmId { get; set; }
         public int SimilarFilmId { get; set; }
         public virtual Film Film { get; set; } = null!;
